@@ -1,0 +1,4 @@
+com\example\zkapp\zk\login\LoginComposer.class
+com\example\zkapp\zk\config\ZkAppZkAutoConfiguration.class
+com\example\zkapp\zk\servlet\ZulForwardServlet.class
+com\example\zkapp\zk\servlet\FallbackNotFoundServlet.class

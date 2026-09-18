@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <style src="/zkapp/css/zkapp.css"/>
+    <vbox align="center" pack="center" vflex="1" hflex="1" spacing="12px" sclass="zkapp-denied-page">
+        <label value="Acceso denegado" sclass="zkapp-denied-title"/>
+        <label value="No tiene permisos suficientes para acceder a este recurso."/>
+        <n:a href="${request.contextPath}${zkAppProperties.ui.homePage}" class="zkapp-denied-link">Volver</n:a>
+    </vbox>
+</zk>

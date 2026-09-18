@@ -1,0 +1,3 @@
+com\example\zkapp\session\HttpSessionService.class
+com\example\zkapp\session\ZkAppSessionAutoConfiguration.class
+com\example\zkapp\session\LoggingContextFilter.class

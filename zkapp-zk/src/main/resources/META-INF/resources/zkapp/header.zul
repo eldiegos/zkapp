@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <div id="zkappHeader" sclass="zkapp-header">
+        <hbox hflex="1" align="center" sclass="zkapp-header-bar">
+            <label value="${zkAppProperties.effectiveUiTitle}" sclass="zkapp-header-title" hflex="1"/>
+            <label value="${currentUserService.displayName}" sclass="zkapp-header-user"
+                   visible="${currentUserService.authenticated}"/>
+            <n:form method="post" action="${request.contextPath}/logout" class="zkapp-header-logout-form">
+                <n:input type="hidden"
+                         name="${requestScope['_csrf'].parameterName}"
+                         value="${requestScope['_csrf'].token}"/>
+                <n:button type="submit" class="zkapp-header-logout-btn">Cerrar sesión</n:button>
+            </n:form>
+        </hbox>
+    </div>
+</zk>

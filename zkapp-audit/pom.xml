@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example.zkapp</groupId>
+        <artifactId>zkapp</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>zkapp-audit</artifactId>
+    <packaging>jar</packaging>
+
+    <name>zkapp-audit</name>
+    <description>Auditoria tecnica desacoplada de persistencia: LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, ACCESS_DENIED</description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.example.zkapp</groupId>
+                <artifactId>zkapp-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.example.zkapp</groupId>
+            <artifactId>zkapp-core</artifactId>
+        </dependency>
+
+        <!-- Solo para escuchar los eventos tecnicos de autenticacion publicados por Spring Security;
+             zkapp-audit no depende de zkapp-security ni contiene logica de negocio. -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

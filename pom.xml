@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example.zkapp</groupId>
+    <artifactId>zkapp</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>zkapp</name>
+    <description>Plataforma reutilizable para construir aplicaciones web ZK + Spring Boot</description>
+
+    <modules>
+        <module>zkapp-bom</module>
+        <module>zkapp-core</module>
+        <module>zkapp-session</module>
+        <module>zkapp-security</module>
+        <module>zkapp-audit</module>
+        <module>zkapp-zk</module>
+        <module>zkapp-spring-boot-starter</module>
+        <module>zkapp-example</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>21</java.version>
+        <maven.compiler.release>21</maven.compiler.release>
+
+        <spring-boot.version>4.0.0</spring-boot.version>
+        <zk.version>10.3.0.1-jakarta</zk.version>
+
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+    </properties>
+
+    <!-- El pom raiz es el parent de zkapp-bom, por lo que NO puede importar el propio zkapp-bom en
+         su dependencyManagement (crearia un ciclo parent <-> import). Cada modulo hijo importa
+         zkapp-bom individualmente en su propio pom. -->
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
+                        <parameters>true</parameters>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- ZK CE (groupId org.zkoss.zk) esta publicada en Maven Central, por lo que no hace falta
+         declarar el repositorio propio de ZK (mavensync.zkoss.org). -->
+</project>

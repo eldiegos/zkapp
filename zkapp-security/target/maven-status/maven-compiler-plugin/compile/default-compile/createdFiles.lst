@@ -1,0 +1,9 @@
+com\example\zkapp\security\user\DefaultCurrentUserService.class
+com\example\zkapp\security\config\ZkAppLogoutSuccessHandler.class
+com\example\zkapp\security\config\ZkAppAccessDeniedHandler.class
+com\example\zkapp\security\auth\microsoft\MicrosoftAuthenticationConfiguration$1.class
+com\example\zkapp\security\auth\microsoft\MicrosoftAuthenticationConfiguration.class
+com\example\zkapp\security\auth\ZkAppAuthenticationConfigurer.class
+com\example\zkapp\security\auth\ldap\LdapAuthenticationConfiguration$1.class
+com\example\zkapp\security\config\ZkAppSecurityAutoConfiguration.class
+com\example\zkapp\security\auth\ldap\LdapAuthenticationConfiguration.class

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example.zkapp</groupId>
+        <artifactId>zkapp</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>zkapp-spring-boot-starter</artifactId>
+    <packaging>jar</packaging>
+
+    <name>zkapp-spring-boot-starter</name>
+    <description>
+        Starter unico que una aplicacion consumidora debe anadir para obtener toda la
+        infraestructura web comun de la plataforma zkapp (ZK, login, logout, LDAP, Microsoft,
+        Spring Security, sesion, usuario autenticado, RBAC, UI comun, auditoria y logging
+        tecnico). No contiene logica de negocio ni codigo propio: unicamente agrega los modulos de
+        plataforma, cada uno con su propia Spring Boot AutoConfiguration.
+    </description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.example.zkapp</groupId>
+                <artifactId>zkapp-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.example.zkapp</groupId>
+            <artifactId>zkapp-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.example.zkapp</groupId>
+            <artifactId>zkapp-session</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.example.zkapp</groupId>
+            <artifactId>zkapp-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.example.zkapp</groupId>
+            <artifactId>zkapp-audit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.example.zkapp</groupId>
+            <artifactId>zkapp-zk</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+    <borderlayout hflex="1" vflex="1">
+        <north border="none">
+            <include src="/zkapp/header.zul"/>
+        </north>
+        <center border="none" autoscroll="true">
+            <vbox apply="com.example.zkappdemo.IndexComposer" spacing="8px" style="padding:24px">
+                <label value="Bienvenido a ${zkAppProperties.application.name}" style="font-size:18px;font-weight:600"/>
+                <hbox><label value="Usuario: " style="font-weight:600"/><label id="usernameLabel"/></hbox>
+                <hbox><label value="Roles: " style="font-weight:600"/><label id="rolesLabel"/></hbox>
+                <hbox><label value="Sesion: " style="font-weight:600"/><label id="sessionIdLabel"/></hbox>
+                <separator/>
+                <label value="Esta pagina, sus ViewModels y las reglas de negocio pertenecen a la aplicacion. Login, logout, seguridad, sesion y la cabecera comun los proporciona zkapp-spring-boot-starter."/>
+            </vbox>
+        </center>
+    </borderlayout>
+</zk>

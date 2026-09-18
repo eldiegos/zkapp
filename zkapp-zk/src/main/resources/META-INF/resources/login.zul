@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <style src="/zkapp/css/zkapp.css"/>
+    <div id="loginPage" apply="com.example.zkapp.zk.login.LoginComposer" sclass="zkapp-login-page">
+        <vbox align="center" pack="center" vflex="1" hflex="1" spacing="16px" sclass="zkapp-login-box">
+            <label id="titleLabel" sclass="zkapp-login-title"/>
+            <label id="errorLabel" value="Usuario o contraseña incorrectos." sclass="zkapp-login-error" visible="false"/>
+            <label id="logoutLabel" value="Sesión cerrada correctamente." sclass="zkapp-login-info" visible="false"/>
+            <n:form id="loginForm" method="post" action="${request.contextPath}/login" class="zkapp-login-form">
+                <n:input type="hidden"
+                         name="${requestScope['_csrf'].parameterName}"
+                         value="${requestScope['_csrf'].token}"/>
+                <n:div class="zkapp-login-field">
+                    <n:label for="username">Usuario</n:label>
+                    <n:input type="text" id="username" name="username" autocomplete="username"/>
+                </n:div>
+                <n:div class="zkapp-login-field">
+                    <n:label for="password">Contraseña</n:label>
+                    <n:input type="password" id="password" name="password" autocomplete="current-password"/>
+                </n:div>
+                <n:button type="submit" class="zkapp-login-submit">Entrar</n:button>
+            </n:form>
+        </vbox>
+    </div>
+</zk>
